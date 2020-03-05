@@ -377,11 +377,12 @@ body{font-family: 'Cairo', sans-serif;overflow-x: hidden;padding: 25px 15px;}
 
 .countries{overflow: hidden;max-height: 395px;overflow-y: auto;}
 .countries ul{margin: 0;padding: 0;list-style-type: none;}
-.countries ul li{padding: 15px 0;border-bottom: 1px solid #dadada;display: flex;align-items: center;justify-content: space-between;}
+.countries ul li{padding: 15px 10px;border-bottom: 1px solid #dadada;display: flex;align-items: center;justify-content: space-between;}
 .countries ul li:last-child{border-bottom: 0;}
 .countries ul li img{width: 35px;}
 .countries ul li .country-statics{text-align: right;display: flex;}
-.countries ul li .country-statics > div{margin-left: 10px;font-size: 20px;width: 50px;}
+.countries ul li .country-statics > div{margin-left: 15px;font-size: 20px;}
+.countries ul li .country-statics > div > div{display: block;font-size: 9px;margin-top: 5px;}
 .countries ul li .country-statics .cases{color: #d0281c;margin-left: 0;}
 .countries ul li .country-statics .death{color: #000;}
 .countries ul li .country-statics .recovery{color: green;}

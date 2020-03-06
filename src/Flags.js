@@ -87,10 +87,30 @@ import Iraq from './img/flags/039-iraq.svg';
 import Oman from './img/flags/040-oman.svg';
 import Republicmacedonia from './img/flags/041-republic-of-macedonia.svg';
 import Morocco from './img/flags/043-morocco.svg';
+import Vatican from './img/flags/003-vatican.svg';
+import Serbia from './img/flags/serbia.svg';
+import Cameroon from './img/flags/002-cameroon.svg';
+import kuwait from './img/flags/001-kuwait.svg';
 
 const Flags = (props) => {
     let flag = ""
     switch (props.name) {
+        case 'صربيا':
+            flag = (< img src={Serbia}
+                alt="flag" />)
+            break;
+        case 'مدينة الفاتيكان':
+            flag = (< img src={Vatican}
+                alt="flag" />)
+            break;
+        case 'الكاميرون':
+            flag = (< img src={Cameroon}
+                alt="flag" />)
+            break;
+        case 'الكويت':
+            flag = (< img src={kuwait}
+                alt="flag" />)
+            break;
         case 'البر الرئيسي للصين':
             flag = (< img src={China}
                 alt="flag" />)

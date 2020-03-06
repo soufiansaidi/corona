@@ -3,9 +3,14 @@ import CountUp from 'react-countup'
 
 import Cases from './img/cases.svg';
 import Death from './img/death.svg';
-import Recovered from './img/death.svg';
+import Recovered from './img/pill.svg';
+import Coronavirus from './img/coronavirus.png';
 
-import Uae from './img/united-arab-emirates.svg';
+import Flags from './Flags';
+
+// function toCommas(value) {
+//   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// }
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -17,27 +22,30 @@ const App = () => {
   }, [])
 
   return (
+    (data.entries.length < 1) ? <div className="loading"><img src={ Coronavirus } alt="Corona virus" /></div>
+    :
     <div className="container">
+      {/* <div className="date text-right">{ data.last_updated }</div> */}
       <div className="statistics-generale">
         <div className="single-static">
           <img src={ Cases } alt="الحالات" />
           <div className="wrap cases">
             <h3>الحالات</h3>
-            <div>{(data.total_cases) ? <CountUp end={ data.total_cases } /> : 0 }</div>
+            <div>{(data.total_cases) ? <CountUp separator="," end={ data.total_cases } /> : 0 }</div>
           </div>
         </div>
         <div className="single-static">
-          <img src={ Death } alt="الموت" />
+          <img src={ Death } alt="الوفيات" />
           <div className="wrap death">
-            <h3>الموت</h3>
-            <div>{(data.total_deaths) ? <CountUp end={ data.total_deaths } /> : 0 }</div>
+            <h3>الوفيات</h3>
+            <div>{(data.total_deaths) ? <CountUp separator="," end={ data.total_deaths } /> : 0 }</div>
           </div>
         </div>
         <div className="single-static">
           <img src={ Recovered } alt="تعافى" />
           <div className="wrap recovery">
             <h3>تعافى</h3>
-            <div>{(data.total_recoverds) ? <CountUp end={ data.total_recoverds } /> : 0 }</div>
+            <div>{(data.total_recoverds) ? <CountUp separator="," end={ data.total_recoverds } /> : 0 }</div>
           </div>
         </div>
       </div>
@@ -50,11 +58,11 @@ const App = () => {
                 data.entries.map(
                   (entry, i) => (
                     <li key={i}>
-                      <img src={ Uae } alt="flag" />
+                      <Flags  name={ entry.country } />
                       <div className="country-statics">
-                        <div className="cases">{(entry.cases) ? <CountUp end={ entry.cases } /> : 0 }<div>حالات</div></div>
-                        <div className="death">{(entry.deaths) ? <CountUp end={ entry.deaths } /> : 0 }<div>موت</div></div>
-                        <div className="recovery">{(entry.recovered) ? <CountUp end={ entry.recovered } /> : 0 }<div>تعافى</div></div>
+                        <div className="cases">{(entry.cases) ? <CountUp separator="," end={ entry.cases } /> : 0 }<div>حالات</div></div>
+                        <div className="death">{(entry.deaths) ? <CountUp separator="," end={ entry.deaths } /> : 0 }<div>موت</div></div>
+                        <div className="recovery">{(entry.recovered) ? <CountUp separator="," end={ entry.recovered } /> : 0 }<div>تعافى</div></div>
                       </div>
                     </li>
                   )

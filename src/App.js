@@ -19,7 +19,10 @@ const App = () => {
   useEffect(() => {
     fetch("http://3.15.26.157:8000/api/v1/admin/sites/corona/ar")
     .then(res => res.json())
-    .then( data => setData(data) )
+    .then( data => {
+      // let sortedData = data.map()
+      setData(data)
+    })
   }, [])
 
   return (
@@ -56,13 +59,18 @@ const App = () => {
           <div className="countries">
             <ul>
               { 
-                data.entries.map(
+                data.entries
+                  .sort((entryA, entryB) => entryB.cases - entryA.cases)
+                  .map(
                   (entry, i) => (
                     <li key={i}>
-                      <Flags  name={ entry.country } />
+                      <div>
+                        <Flags name={ entry.country } />
+                        <p>{ entry.country }</p>
+                      </div>
                       <div className="country-statics">
-                        <div className="cases">{(entry.cases) ? <CountUp separator="," end={ entry.cases } /> : 0 }<div>حالات</div></div>
-                        <div className="death">{(entry.deaths) ? <CountUp separator="," end={ entry.deaths } /> : 0 }<div>موت</div></div>
+                        <div className="cases">{(entry.cases) ? <CountUp separator="," end={ entry.cases } /> : 0 }<div>الحالات</div></div>
+                        <div className="death">{(entry.deaths) ? <CountUp separator="," end={ entry.deaths } /> : 0 }<div>الوفيات</div></div>
                         <div className="recovery">{(entry.recovered) ? <CountUp separator="," end={ entry.recovered } /> : 0 }<div>تعافى</div></div>
                       </div>
                     </li>

@@ -362,7 +362,7 @@ textarea {
 
 
 
-body{font-family: 'Cairo', sans-serif;overflow-x: hidden;padding: 25px 15px;}
+body{font-family: 'Cairo', sans-serif;overflow-x: hidden;padding: 25px 15px;direction: rtl;text-align: right;}
 .text-right{text-align: right;}
 .text-left{text-align: left;}
 
@@ -397,9 +397,9 @@ body{font-family: 'Cairo', sans-serif;overflow-x: hidden;padding: 25px 15px;}
 .container{max-width: 1170px;width: 100%;margin: auto;}
 .date{margin-bottom: 15px;}
 .statistics-generale{overflow: hidden;}
-.statistics-generale .single-static{display: flex;justify-content: end;padding: 5px;position: relative;overflow: hidden;margin-bottom: 20px;}
+.statistics-generale .single-static{padding: 5px;position: relative;overflow: hidden;margin-bottom: 20px;}
 .statistics-generale img{width: 100px;position: absolute;left: 0;top: 50%;transform: translateY(-50%);-moz-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
-.statistics-generale .wrap{padding: 15px;width: calc(100% - 60px);border-radius: 25px;box-shadow: 0 0 9px 0 #dadada;float: right;text-align: center;}
+.statistics-generale .wrap{padding: 15px;width: calc(100% - 60px);border-radius: 25px;box-shadow: 0 0 9px 0 #dadada;text-align: center;}
 .statistics-generale .wrap h3{margin: 0 0 10px;font-weight: 600;font-size: 25px;line-height: 25px;color: #fff;}
 .statistics-generale .wrap div{font-size: 65px;line-height: 60px;font-weight: bolder;color: #fff;}
 .statistics-generale .cases{background: #ED213A;background: -webkit-linear-gradient(to right, #93291E, #ED213A);background: linear-gradient(to right, #93291E, #ED213A);}
@@ -411,12 +411,13 @@ body{font-family: 'Cairo', sans-serif;overflow-x: hidden;padding: 25px 15px;}
 .countries ul li{padding: 15px 10px;border-bottom: 1px solid #dadada;display: flex;align-items: center;justify-content: space-between;}
 .countries ul li:last-child{border-bottom: 0;}
 .countries ul li img{width: 35px;}
+.countries ul li img + p{margin-top: 5px;font-size: 12px;}
 .countries ul li .country-statics{text-align: right;display: flex;}
-.countries ul li .country-statics > div{margin-left: 15px;font-size: 20px;}
-.countries ul li .country-statics > div > div{display: block;font-size: 9px;margin-top: 5px;}
-.countries ul li .country-statics .cases{color: #d0281c;margin-left: 0;}
-.countries ul li .country-statics .death{color: #000;}
-.countries ul li .country-statics .recovery{color: green;}
+.countries ul li .country-statics > div{margin-left: 10px;font-size: 20px;}
+.countries ul li .country-statics > div > div{display: block;font-size: 9px;margin-top: 5px;width: 65px;}
+.countries ul li .country-statics .cases{color: #d0281c;}
+.countries ul li .country-statics .death{color: #000;width: 55px;}
+.countries ul li .country-statics .recovery{color: green;margin-left: 0;}
 
 
 @media screen and (max-width: 600px){

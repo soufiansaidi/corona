@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CountUp from 'react-countup'
 
+import Logo from './img/logo.svg';
 import Cases from './img/cases.svg';
 import Death from './img/death.svg';
 import Recovered from './img/pill.svg';
@@ -25,7 +26,7 @@ const App = () => {
     (data.entries.length < 1) ? <div className="loading"><img src={ Coronavirus } alt="Corona virus" /></div>
     :
     <div className="container">
-      {/* <div className="date text-right">{ data.last_updated }</div> */}
+      <div className="logo"><img src={ Logo } alt="Haam app" /></div>
       <div className="statistics-generale">
         <div className="single-static">
           <img src={ Cases } alt="الحالات" />

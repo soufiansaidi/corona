@@ -51,7 +51,7 @@ export const DataContextProvider = props => {
     const [ state, dispatch ] = useReducer(DataReducer, initialState)
     
     useEffect(() => {
-        axios.get('3.15.26.157:8000/api/v1/sites/corona/ar', {})
+        axios.get('http://3.15.26.157:8000/api/v1/sites/corona/ar', {})
         .then(res => {
             res.data.entries.sort((entryA, entryB) => entryB.cases - entryA.cases)
             dispatch({type: 'SET_DATA', payload: res.data});

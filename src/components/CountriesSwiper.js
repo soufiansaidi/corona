@@ -1,44 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Country from './Country'
 
-// import Swiper from 'react-id-swiper'
-// import 'swiper/css/swiper.css'
+import { DataContext } from '../Context/DataContext'
 
-import { DataContext } from './../Context/DataContext'
+const CountriesSwiper = () => {
+    const { state, dispatch } = useContext(DataContext)
 
-export default function CountriesSwiper() {
-    const { state } = useContext(DataContext)
-    
-    // let params
-    // if(state.countries.length > 2){
-    //     params = { 
-    //         direction: 'vertical',
-    //         // grabCursor: true,
-    //         // slidesPerView: 3,
-    //         // mousewheel: true, 
-    //         // spaceBetween: 24, 
-    //         // centeredSlides: true, 
-    //         // loop: true,
-    //         // rebuildOnUpdate: true,
-    //         // shouldSwiperUpdate: true,
-    //         // breakpoints: {
-    //         //     0: {slidesPerView: 'auto'},
-    //         //     600: {slidesPerView: 3},
-    //         // },
-    //         // navigation: {
-    //         //     nextEl: '.swiper-button-next',
-    //         //     prevEl: '.swiper-button-prev'
-    //         // },
-    //     }
-    // }else{
-    //     params = { 
-    //         grabCursor: true,
-    //         slidesPerView: 1,
-    //         rebuildOnUpdate: true,
-    //         shouldSwiperUpdate: true,
-    //         loop: false
-    //     }
-    // }
+    useEffect(()=>{
+        dispatch({type: 'CASES', payload: state.backup})
+    }, [])
 
     return (
         <div className="countries">
@@ -60,3 +30,4 @@ export default function CountriesSwiper() {
         </div>
     )
 }
+export default CountriesSwiper

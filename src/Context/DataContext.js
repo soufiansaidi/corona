@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react'
+import React, { createContext, useReducer, useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const DataContext = createContext()
@@ -31,13 +31,13 @@ const DataReducer = (state, action) => {
         case 'SET_ERROR':
             return state
         case 'CASES': 
-            newData = state.countries.sort((countryA, countryB) => countryB.cases - countryA.cases)
+            newData = state.backup.sort((countryA, countryB) => countryB.cases - countryA.cases)
             return {...state, countries: newData};
         case 'DEATH':
-            newData = state.countries.sort((countryA, countryB) => countryB.deaths - countryA.deaths)
+            newData = state.backup.sort((countryA, countryB) => countryB.deaths - countryA.deaths)
             return {...state, countries: newData};
         case 'RECOVERY':
-            newData = state.countries.sort((countryA, countryB) => countryB.recovered - countryA.recovered)
+            newData = state.backup.sort((countryA, countryB) => countryB.recovered - countryA.recovered)
             return {...state, countries: newData};
         case 'SEARCH':
             newData = state.backup.filter((country) => country.country.indexOf(action.payload) !== -1 )
@@ -49,14 +49,19 @@ const DataReducer = (state, action) => {
 
 export const DataContextProvider = props => {
     const [ state, dispatch ] = useReducer(DataReducer, initialState)
-    
+    // const [ getData, setGetDATA ] = useState(false)
+
+    // useEffect(() => {
+        // setGetDATA(true)
+    // }, [])
+
     useEffect(() => {
-        axios.get('http://3.15.26.157:8000/api/v1/sites/corona/ar', {})
+        axios.get('https://corona.haamapp.com/api/v1/admin/sites/corona/ar', {})
         .then(res => {
             res.data.entries.sort((entryA, entryB) => entryB.cases - entryA.cases)
-            dispatch({type: 'SET_DATA', payload: res.data});
+            dispatch({type: 'SET_DATA', payload: res.data})
         }).catch(error => {
-            dispatch({type: 'SET_ERROR', payload: error});
+            dispatch({type: 'SET_ERROR', payload: error})
         })
     }, []);
 

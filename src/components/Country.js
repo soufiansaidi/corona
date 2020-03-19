@@ -1,7 +1,7 @@
 import React from 'react'
 // import CountUp from 'react-countup'
 
-import Flags from './../Flags'
+import Flags from './Flags'
 
 function toCommas(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

@@ -3,7 +3,7 @@ import Country2 from './Country2'
 
 import { DataContext } from '../Context/DataContext'
 
-const ListCountrieFiltred = ({ type }) => {
+const ListCountrieFiltred = ({ type, col }) => {
     const { state } = useContext(DataContext)
 
     return (
@@ -15,7 +15,7 @@ const ListCountrieFiltred = ({ type }) => {
                     <div className="single-swiper">
                         <div className="wrapper">
                             <h4>الدولة</h4>
-                            <h4>المجموع</h4>
+                            <h4>{ col }</h4>
                         </div>
                     </div>
                     {   

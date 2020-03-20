@@ -20,7 +20,7 @@ const Cases = () => {
         <>
             <PageTitle title="الحالات المصابة بفايروس كورونا" />
             <FilterForm />
-            <ListCountrieFiltred type="cases" />
+            <ListCountrieFiltred type="cases" col="الاصابات" />
         </>
     )
 }

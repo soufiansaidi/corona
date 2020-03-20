@@ -25,7 +25,7 @@ const DataReducer = (state, action) => {
                         total_cases: action.payload.total_cases,
                         total_deaths: action.payload.total_deaths,
                         total_recoverds: action.payload.total_recoverds,
-                        total_cases_still: parseInt(action.payload.total_cases) - ( parseInt(action.payload.total_deaths) + parseInt(action.payload.total_recoverds) )
+                        total_cases_still: action.payload.total_cases - action.payload.total_deaths - action.payload.total_recoverds
                     }
             }
         case 'SET_ERROR':

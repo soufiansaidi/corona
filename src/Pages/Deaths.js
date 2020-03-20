@@ -20,7 +20,7 @@ const Deaths = () => {
         <>
             <PageTitle title="الوفيات بفايروس كورونا" />
             <FilterForm />
-            <ListCountrieFiltred type="deaths" />
+            <ListCountrieFiltred type="deaths" col="الوفيات" />
         </>
     )
 }

@@ -18,9 +18,9 @@ const Recovered = () => {
 
     return (
         <>
-            <PageTitle title="المتعفى من فايروس كورونا" />
+            <PageTitle title="التعافي من فايروس كورونا" />
             <FilterForm />
-            <ListCountrieFiltred type="recovered" />
+            <ListCountrieFiltred type="recovered" col="التعافي" />
         </>
     )
 }

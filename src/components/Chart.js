@@ -5,7 +5,7 @@ import { DataContext } from '../Context/DataContext'
 
 const Chart = () => {
     const { state } = useContext(DataContext)
-    let percentTotal = state.counters.total_recoverds + state.counters.total_cases_still + state.counters.total_deaths
+    let percentTotal = state.counters.total_cases
     let percentRecoverds = ((100 * state.counters.total_recoverds) / percentTotal).toFixed(2)
     let percentStill = ((100 * state.counters.total_cases_still) / percentTotal).toFixed(2)
     let percentDeaths = ((100 * state.counters.total_deaths) / percentTotal).toFixed(2)
@@ -22,12 +22,12 @@ const Chart = () => {
                     cy={50}
                     data={[
                         {
-                            color: '#2ca53b',
+                            color: '#d0281c',
                             title: 'المتبقي',
                             value: state.counters.total_cases_still
                         },
                         {
-                            color: '#d0281c',
+                            color: '#2ca53b',
                             title: 'تعافى',
                             value: state.counters.total_recoverds
                         },
@@ -60,14 +60,14 @@ const Chart = () => {
                     <i></i>
                     <div>
                         <h3>المتبقي</h3>
-                        <span>{ percentRecoverds }%</span>
+                        <span>{ percentStill }%</span>
                     </div>
                 </div>
                 <div className="percent recovered">
                     <i></i>
                     <div>
                         <h3>تعافى</h3>
-                        <span>{ percentStill }%</span>
+                        <span>{ percentRecoverds }%</span>
                     </div>
                 </div>
                 <div className="percent death">
